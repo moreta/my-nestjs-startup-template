@@ -1,0 +1,14 @@
+# Use root/example as user/password credentials
+version: '3.9'
+
+services:
+  timescaledb:
+    # The timescaledb-ha image offers the most complete TimescaleDB experience. It includes the TimescaleDB Toolkit, and support for PostGIS and Patroni. If you need the smallest possible image, use the timescale/timescaledb:latest-pg14 image instead.
+    image: timescale/timescaledb-ha:pg14-latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.data_timescaledb:/var/lib/postgresql/data
