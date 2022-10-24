@@ -63,13 +63,20 @@ pnpm run db:setup:test
 pnpm run db:setup:dev
 ```
 
-### migration
-
-generate migration file
+### create migration - create table
 
 ```bash
-pnpm exec sequelize migration:generate --name add_tsdb_extension
-````
+pnpm exec sequelize model:generate --name page_loads --attributes userAgent:string,time:date
+```
+
+### create migration - update column
+
+```bash
+pnpm exec sequelize migration:generate --name add_app_users_email_unique
+```
+
+
+### run migration
 
 exec migration
 
@@ -77,14 +84,3 @@ exec migration
 pnpm exec sequelize db:migrate
 ```
 
-### create table
-
-```bash
-pnpm exec sequelize model:generate --name page_loads --attributes userAgent:string,time:date
-```
-
-### update column
-
-```bash
-pnpm exec sequelize migration:generate --name add_users_email_unique
-```

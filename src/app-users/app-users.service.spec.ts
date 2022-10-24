@@ -3,7 +3,6 @@ import { Test, TestingModule } from "@nestjs/testing"
 import { Sequelize } from "sequelize-typescript"
 import { CommonModule } from "../common/common.module"
 import { SEQUELIZE_PROVIDER } from "../common/constants"
-import { DatabaseModule } from "../database/database.module"
 import { AppUserCreateInput, AppUserWhereUniqueInput } from "./app-users.dto"
 import { AppUsersService } from "./app-users.service"
 
@@ -13,7 +12,7 @@ describe("AppUsersService", () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [CommonModule, DatabaseModule],
+      imports: [CommonModule],
       providers: [AppUsersService],
     }).compile()
 
